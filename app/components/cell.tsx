@@ -11,11 +11,18 @@ type CellProps = {
     cells:string[];
     setCells:Dispatch<SetStateAction<string[]>>;
     cell:string;
+    winningMessage:string;
 }
 
-const Cell = ({go,setGo,id,setCells,cells,cell}:CellProps) => {
+const Cell = ({go,setGo,id,setCells,cells,cell,winningMessage}:CellProps) => {
 
     const handlClick = (e) =>{
+
+
+        if(winningMessage)
+        {
+            return;
+        }
         const notTaken = !cells[id]
         
         if(notTaken)
